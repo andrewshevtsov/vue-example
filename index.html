@@ -33,7 +33,7 @@
                 <td class="table__body-cell">{{ item.firstName | toUppercase }}</td>
                 <td class="table__body-cell">{{ item.middleName | toUppercase }}</td>
                 <td class="table__body-cell">
-                  <img v-bind:src="setAvatarUrl" width="100px" alt="Avatar">
+                  <img v-bind:src="item.avatarUrl || defaultImage" width="100px" alt="Avatar">
                 </td>
               </tr>
             </tbody>

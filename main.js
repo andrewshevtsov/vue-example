@@ -9,8 +9,8 @@ const app = new Vue({
     }
   },
   computed: {
-    setAvatarUrl() {
-      return this.avatarUrl || 'https://via.placeholder.com/100';
+    defaultImage() {
+      return 'https://via.placeholder.com/100';
     }
   },
   filters: {
