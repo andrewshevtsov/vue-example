@@ -15,9 +15,16 @@
           <button type="button" v-on:click="toggleList" class="toggle-list">
             Показать/скрыть список
           </button>
-          <table class="table" id="users-table" v-if="isListVisible">
+          <users-table v-bind:users="list" v-on:remove="removeFromList"></users-table>
+          <!-- <users-table></users-table> ошибка: не переданы входные параметры -->
+        </div>
+      </div>
+    </div>
+
+    <template id="users-table">
+      <table class="table" id="users-table" v-if="isListVisible">
             <caption class="table__caption">
-              Всего пользователей: <span class="table__caption-count">{{ totalUsers() }}</span>
+              Всего пользователей: {{ totalUsers }}
             </caption>
             <thead class="table__header">
               <tr class="table__row">
@@ -28,7 +35,12 @@
               </tr>
             </thead>
             <tbody class="table__body">
-              <tr class="table__row" v-for="item in list" v-bind:key="item.id">
+              <tr class="table__row" v-for="item in users" v-bind:key="item.id">
+                <td class="table__body-cell">
+                  <button type="button" v-on:click="remove">
+                    # {{ item.id }}
+                  </button>
+                </td>
                 <td class="table__body-cell">{{ item.lastName | toUppercase }}</td>
                 <td class="table__body-cell">{{ item.firstName | toUppercase }}</td>
                 <td class="table__body-cell">{{ item.middleName | toUppercase }}</td>
@@ -38,9 +50,7 @@
               </tr>
             </tbody>
           </table>
-        </div>
-      </div>
-    </div>
+    </template>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="main.js"></script>
