@@ -1,0 +1,47 @@
+[v-cloak] {
+  display: none;
+}
+
+.container {
+  margin: 0 auto;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  color: #454545;
+}
+
+.table__caption {
+  font-size: 18px;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.table__caption-count {
+  margin-left: 10px;
+  font-size: 24px;
+}
+
+.table__header-cell,
+.table__body-cell {
+  padding: 5px 15px;
+}
+
+.toggle-list {
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #454545;
+  width: 100%;
+}
+
+.toggle-list:hover {
+  cursor: pointer;
+}
