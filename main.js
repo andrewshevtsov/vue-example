@@ -1,7 +1,3 @@
-/* ============================================ */
-
-
-
 var UsersTable = {
   template: '#users-table',
   props: {
@@ -19,32 +15,21 @@ var UsersTable = {
   },
   data: function() {
     return {
-      test: 123,
-      isListVisible: true
+      
     }
   },
   computed: {
-    abc: function() {
-      return this.test + 4
-    },
     totalUsers: function() {
       return this.users.length;
     }
   },
   methods: {
     remove: function(id) {
-      console.log('component remove', id);
       this.$emit('remove', id);
     }
   }
 }
-
-
-
 /* ============================================ */
-
-
-
 const app = new Vue({
   el: '#app',
   components: {
@@ -52,9 +37,7 @@ const app = new Vue({
   },
   data: function () {
     return {
-      title: 'Some title',
       isListVisible: true,
-      computed: '',
       list: []
     }
   },
@@ -65,10 +48,9 @@ const app = new Vue({
   },
   watch: {
     isListVisible: {
-      // deep: true,
       immediate: true,
       handler: function() {
-        console.log('Чекаво жучара, кнопку нажимал?', this.isListVisible);
+        console.log('скрыть/показать список', this.isListVisible);
       }
     }
   },
@@ -77,13 +59,9 @@ const app = new Vue({
   },
   methods: {
     removeFromList(id) {
-      console.log('parent remove', id);
       this.list = this.list.filter(function(item) {
         return item.id !== id
       });
-    },
-    totalUsers() {
-      return this.list.length;
     },
     toggleList() {
       this.isListVisible = !this.isListVisible;
@@ -95,35 +73,35 @@ const app = new Vue({
           firstName: 'Иван',
           lastName: 'Иванов',
           middleName: 'Иванович',
-          avatarUrl: 'https://is.gd/DIyN1A'
+          avatarUrl: 'https://cdn.forbes.ru/files/presets/820_547/photo_galleries/m-1_vid341095e.jpg__1551363734__42795__vid372891e.jpg'
         },
         {
           id: 1,
           firstName: 'Петр',
           lastName: 'Петров',
           middleName: 'Петрович',
-          avatarUrl: 'https://is.gd/z7mVg1'
+          avatarUrl: 'https://cdn.forbes.ru/files/presets/820_547/photo_galleries/m-3_vid341095e.jpg__1551363805__12018__vid372891e.jpg'
         },
         {
           id: 2,
           firstName: 'Василий',
           lastName: 'Васильев',
           middleName: 'Васильевич',
-          avatarUrl: 'https://is.gd/hnpxjn'
+          avatarUrl: 'https://cdn.forbes.ru/files/presets/820_547/photo_galleries/m-6_vid341095e.jpg__1551363912__52491__vid372891e.jpg'
         },
         {
           id: 3,
           firstName: 'Владимир',
           lastName: 'Владимиров',
           middleName: "Владимирович",
-          avatarUrl: 'https://is.gd/pMvnpd'
+          avatarUrl: 'https://cdn.forbes.ru/files/presets/820_547/photo_galleries/m-2_vid341095e.jpg__1551363998__99124__vid372891e.jpg'
         },
         {
           id: 4,
           firstName: 'Константин',
           lastName: 'Константинов',
           middleName: 'Константинович',
-          avatarUrl: 'https://is.gd/Te58gx'
+          avatarUrl: 'https://cdn.forbes.ru/files/presets/820_547/photo_galleries/eb2f39b2-2fce-4d6c-9003-3bc5ab196e86.jpeg__1551701427__73194__vid372891e.jpeg'
         }
       ];
     }

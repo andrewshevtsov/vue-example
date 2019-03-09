@@ -12,22 +12,18 @@
     <div id="app" v-cloak>
       <div class="row">
         <div class="container">
-          <button type="button" v-on:click="toggleList" class="toggle-list">
-            Показать/скрыть список
-          </button>
-          <users-table v-bind:users="list" v-on:remove="removeFromList"></users-table>
-          <!-- <users-table></users-table> ошибка: не переданы входные параметры -->
+          <button v-on:click="toggleList" type="button" class="toggle-list">Показать/скрыть список</button>
+          <users-table v-if="isListVisible" v-bind:users="list" v-on:remove="removeFromList"></users-table>
         </div>
       </div>
     </div>
 
     <template id="users-table">
-      <table class="table" id="users-table" v-if="isListVisible">
-            <caption class="table__caption">
-              Всего пользователей: {{ totalUsers }}
-            </caption>
+      <table id="users-table" class="table">
+            <caption class="table__caption"> Всего пользователей: {{ totalUsers }} </caption>
             <thead class="table__header">
               <tr class="table__row">
+                <th class="table__header-cell">Id</th>
                 <th class="table__header-cell">Last Name</th>
                 <th class="table__header-cell">First Name</th>
                 <th class="table__header-cell">Middle Name</th>
@@ -35,11 +31,9 @@
               </tr>
             </thead>
             <tbody class="table__body">
-              <tr class="table__row" v-for="item in users" v-bind:key="item.id">
+              <tr v-for="item in users" v-bind:key="item.id" class="table__row">
                 <td class="table__body-cell">
-                  <button type="button" v-on:click="remove">
-                    # {{ item.id }}
-                  </button>
+                  <button v-on:click="remove(item.id)" type="button"> # {{ item.id }} </button>
                 </td>
                 <td class="table__body-cell">{{ item.lastName | toUppercase }}</td>
                 <td class="table__body-cell">{{ item.firstName | toUppercase }}</td>
